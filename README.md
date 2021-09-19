@@ -6,9 +6,9 @@ This project involves arguing about (or learning more) about the Lord of the Rin
 ## Table of Contents
 - [Requirements](#Requirements)
 - [Design Choices](#Design-Choices)
-- [Approach](#Approach)
+- [Project Setup](#Project-Setup)
 - [Usage](#Usage)
-- [API Documentation](#API Documentation)
+- [API Documentation](#API-Documentation)
 - [License](License)
 
 ##  Requirements
@@ -31,13 +31,14 @@ https://the-one-api.dev/ to obtain data
 
 ### Framework
 Django
+It is fast and easy to set up. It offers in-built authentication system for fast set-up, it allows end-to-end testing.It has Django REST Framework which helps to build powerful APIs. 
 
 ### Database
-Posgres: it support for a large number of data types like array field
+Postgres: it supports for a large number of data types like array field.
 
-## Approach
+## Project Setup
 
-The projects consist of 3 apps;
+The project consist of 3 apps;
 #### core
 It contains the models, core tests, migrations, management and admin files.
 
