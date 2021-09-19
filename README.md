@@ -40,13 +40,13 @@ Postgres: it supports for a large number of data types like array field.
 
 The project consist of 3 apps;
 #### core
-It contains the models, core tests, migrations, management and admin files.
+The core app has the models, migrations and management logic. It contains the models, core tests, migrations, management and admin files.
 
 #### user
-It contains the serializer, views, urls and user tests files
+The user app has all the users and authentication logic. It contains the serializer, views, urls and user tests files
 
 #### character
-It contains the urls, views and character tests files
+The character app has all the logic for the characters and quote endpoints. It contains the urls, views and character tests files
 
 ## Usage
 - clone this repository
