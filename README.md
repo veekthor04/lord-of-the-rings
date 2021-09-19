@@ -67,4 +67,4 @@ Swagger-ui: http://localhost:8000/swagger/
 
 ## License
 
-[MIT © Veekthor04.](../LICENSE)
+[MIT © Veekthor04.](./LICENSE)
