@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+from core.models import Favorite
 
 
 def sample_user(
@@ -32,3 +33,11 @@ class ModelTests(TestCase):
         """Test creating with invalid credentials raises error"""
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user(None, 'testuser')
+
+    def test_favorite_str(self):
+        """"Test the favorite string representation"""
+        favorite = Favorite.objects.create(
+            user=sample_user()
+        )
+
+        self.assertEqual(str(favorite), favorite.user.username)
