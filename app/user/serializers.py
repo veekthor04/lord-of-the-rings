@@ -29,7 +29,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class AuthTokenSerializer(serializers.Serializer):
-    """Serailizer for the user authentication object"""
+    """Serializer for the user authentication object"""
     username = serializers.CharField()
     password = serializers.CharField(
         style={'input_type': 'password'},
