@@ -31,10 +31,23 @@ https://the-one-api.dev/ to obtain data
 
 ### Framework
 Django
+
 It is fast and easy to set up. It offers in-built authentication system for fast set-up, it allows end-to-end testing.It has Django REST Framework which helps to build powerful APIs. 
 
 ### Database
-Postgres: it supports for a large number of data types like array field.
+Postgres
+
+The speed and stability is quite impressive compared to other SQL databases. It has support for a large number of data types like array field.
+
+
+### Tools
+Docker
+
+This makes it easy create ready-to-run containerised applications. it makes the transition from development to production much easier.
+
+Swagger
+
+This makes it easy to automate documentation from code and test RESTful APIs/ 
 
 ## Project Setup
 
