@@ -5,7 +5,7 @@ This project involves arguing about (or learning more) about the Lord of the Rin
 
 ## Table of Contents
 - [Requirements](#Requirements)
-- [Design Choices](#Design Choices)
+- [Design-Choices](#Design-Choices)
 - [Approach](#Approach)
 - [Usage](#Usage)
 - [API Documentation](#API Documentation)
