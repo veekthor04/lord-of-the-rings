@@ -52,7 +52,7 @@ It contains the urls, views and character tests files
  
 `$ git clone https://github.com/veekthor04/lord-of-the-rings.git`
 
-`$ cd sample-django-app`
+`$ cd lord-of-the-rings`
 
 - run the docker compose file
 
