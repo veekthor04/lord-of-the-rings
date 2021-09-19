@@ -9,6 +9,7 @@ from rest_framework import status
 # Reverse URLs
 CHARACTER_URL = reverse('character:characters')
 
+
 # Helper function to create user
 def create_user(**params):
     return get_user_model().objects.create_user(**params)

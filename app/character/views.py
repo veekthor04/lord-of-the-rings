@@ -4,15 +4,13 @@ from requests import ReadTimeout, ConnectTimeout, HTTPError, Timeout, \
 
 from decouple import config
 
-# from django.utils.decorators import method_decorator
-
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-# from drf_yasg.utils import swagger_auto_schema
-# from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 from core.models import Favorite
 
@@ -24,6 +22,15 @@ THE_ONE_API_BASE_URL = config('THE_ONE_API_BASE_URL')
 
 
 # Create your views here.
+@swagger_auto_schema(
+    method='get',
+    responses={200: openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'status': openapi.Schema(type=openapi.TYPE_STRING)
+        }
+    )},
+)
 @api_view(['GET'])
 def list_character(request):
     """Retrieves character from the-one-api and returns it"""
@@ -54,6 +61,15 @@ def list_character(request):
     )
 
 
+@swagger_auto_schema(
+    method='get',
+    responses={200: openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'status': openapi.Schema(type=openapi.TYPE_STRING)
+        }
+    )},
+)
 @api_view(['GET'])
 def list_character_quote(request, character_id):
     """Retrieves character's quote from the-one-api and returns it"""
@@ -86,6 +102,15 @@ def list_character_quote(request, character_id):
         )
 
 
+@swagger_auto_schema(
+    method='get',
+    responses={200: openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'message': openapi.Schema(type=openapi.TYPE_STRING)
+        }
+    )},
+)
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def favorite_character(request, character_id):
@@ -108,6 +133,15 @@ def favorite_character(request, character_id):
     )
 
 
+@swagger_auto_schema(
+    method='get',
+    responses={200: openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'message': openapi.Schema(type=openapi.TYPE_STRING)
+        }
+    )},
+)
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def favorite_quote_with_character(request, character_id, quote_id):
@@ -137,6 +171,24 @@ def favorite_quote_with_character(request, character_id, quote_id):
     )
 
 
+@swagger_auto_schema(
+    method='get',
+    responses={200: openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'character': openapi.Schema(
+                type=openapi.TYPE_ARRAY,
+                items=openapi.Items(type=openapi.TYPE_STRING),
+                description='A list of characters'
+            ),
+            'quote': openapi.Schema(
+                type=openapi.TYPE_ARRAY,
+                items=openapi.Items(type=openapi.TYPE_STRING),
+                description='A list of quotes'
+            ),
+        }
+    )}
+)
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def favorite_items(request):
