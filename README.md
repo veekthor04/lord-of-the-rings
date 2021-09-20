@@ -68,7 +68,13 @@ The character app has all the logic for the characters and quote endpoints. It c
 
 `$ cd lord-of-the-rings`
 
-- run the docker compose file
+- create a .env file using the .env.sample file as a template
+
+- run tests
+
+`docker-compose run --rm app sh -c "python manage.py test"`
+
+- run the app
 
 `docker-compose up`
 

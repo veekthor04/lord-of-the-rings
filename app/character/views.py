@@ -2,6 +2,8 @@ import requests
 from requests import ReadTimeout, ConnectTimeout, HTTPError, Timeout, \
     ConnectionError
 
+from django.utils.translation import ugettext_lazy as _
+
 from decouple import config
 
 from rest_framework import status
@@ -44,7 +46,7 @@ def list_character(request):
 
         # Server error
         return Response(
-            {"error": "service is unavailable, try again"},
+            {"error": _("service is unavailable, try again")},
             status=status.HTTP_503_SERVICE_UNAVAILABLE
         )
     else:
@@ -56,7 +58,7 @@ def list_character(request):
             return Response(data, status=status.HTTP_200_OK)
 
     return Response(
-        {"error": "Request failed"},
+        {"error": _("Request failed")},
         status=response.status_code
     )
 
@@ -85,7 +87,7 @@ def list_character_quote(request, character_id):
 
         # Server error
         return Response(
-            {"error": "service is unavailable, try again"},
+            {"error": _("service is unavailable, try again")},
             status=status.HTTP_503_SERVICE_UNAVAILABLE
         )
     else:
@@ -97,7 +99,7 @@ def list_character_quote(request, character_id):
             return Response(data, status=status.HTTP_200_OK)
 
         return Response(
-            {"error": "Request failed"},
+            {"error": _("Request failed")},
             status=response.status_code
         )
 
@@ -128,7 +130,7 @@ def favorite_character(request, character_id):
         user_favorite[0].save()
 
     return Response(
-        {"message": "character has been added to user's favorite"},
+        {"message": _("character has been added to user's favorite")},
         status=status.HTTP_200_OK
     )
 
@@ -166,8 +168,10 @@ def favorite_quote_with_character(request, character_id, quote_id):
     user_favorite[0].save()
 
     return Response(
-        {"message": "character and quote has been added to user's favorite"},
-        status=status.HTTP_200_OK
+        {
+            "message": _("character and quote has been added to user's "
+                         "favorite")
+        }, status=status.HTTP_200_OK
     )
 
 
@@ -223,7 +227,7 @@ def favorite_items(request):
 
         # Server error
         return Response(
-            {"error": "service is unavailable, try again"},
+            {"error": _("service is unavailable, try again")},
             status=status.HTTP_503_SERVICE_UNAVAILABLE
         )
     else:
@@ -240,5 +244,5 @@ def favorite_items(request):
             }, status=status.HTTP_200_OK)
 
     return Response({
-        'message': 'not found'
+        'message': _('not found')
     }, status=status.HTTP_404_NOT_FOUND)

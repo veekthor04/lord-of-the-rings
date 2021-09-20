@@ -70,9 +70,7 @@ urlpatterns = [
     ),
 
     path('', root_redirect),  # Home page
-
-    path('admin/', admin.site.urls),
-    path('accounts/', admin.site.urls),
+    path('accounts/', admin.site.urls),  # Admin routes
     path('', include('user.urls')),
     path('', include('character.urls')),
 ]
